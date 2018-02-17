@@ -11,7 +11,6 @@ angular.module("myApp").service("TopicService", [
       return $http
         .get("/api/topics")
         .then(data => {
-          console.log("fhksfsdhflsf", data);
           let result = data.data;
 
           result.forEach(element => {

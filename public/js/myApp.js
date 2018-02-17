@@ -16,11 +16,11 @@ angular
       .when("/topics", {
         controller: "TopicsController",
         templateUrl: "/views/topics.html"
+      })
+      .when("/users", {
+        controller: "UsersController",
+        templateUrl: "/views/users.html"
       });
-    // .when("/movies", {
-    //   controller: "MoviesController",
-    //   templateUrl: "/views/movies.html"
-    // })
     // .when("/other", {
     //   controller: "OtherController",
     //   templateUrl: "/views/other.html"
