@@ -3,12 +3,25 @@ angular.module("myApp").service("TopicService", [
   function($http) {
     let topicArr = [];
 
-    let getTopic = function() {
+    this.getTopics = function() {
       return topicArr;
     };
 
-    let fetchTopics = function() {
-      $http.get("api/topics").then(result => {});
+    this.fetchTopics = function() {
+      return $http
+        .get("/api/topics")
+        .then(data => {
+          console.log("fhksfsdhflsf", data);
+          let result = data.data;
+
+          result.forEach(element => {
+            topicArr.push(element);
+          });
+          return topicArr;
+        })
+        .catch(err => {
+          console.log(err);
+        });
     };
   }
 ]);

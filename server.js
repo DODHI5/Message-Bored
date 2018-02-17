@@ -29,7 +29,7 @@ app.use(bodyParser.json());
 
 app.use(methodOverride("_method"));
 
-app.use("api/topics", topicRoutes);
+app.use("/api/topics", topicRoutes);
 
 app.get("/*", (req, res) => {
   var options = {

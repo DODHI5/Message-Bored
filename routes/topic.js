@@ -28,7 +28,8 @@ router
       });
   })
   .get((req, res) => {
-    return Topic.fetchAll()
+    return new Topic()
+      .fetchAll()
       .then(topics => {
         topics = topics.toJSON();
         res.json(topics);
