@@ -23,5 +23,11 @@ angular.module("myApp").service("TopicService", [
           console.log(err);
         });
     };
+    this.insertTopics = function(newTopic) {
+      return $http.post("/api/topics", newTopic).then(data => {
+        let result = data.data;
+        topicArr.push(result);
+      });
+    };
   }
 ]);
