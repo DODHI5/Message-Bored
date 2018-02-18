@@ -28,5 +28,17 @@ angular.module("myApp").service("TopicService", [
         topicArr.push(result);
       });
     };
+    this.createMessage = function(topic_id, author_id, message) {
+      return $http
+        .post("/api/messages", topic_id, author_id, message)
+        .then(result => {
+          return result.data;
+        });
+    };
+    this.latestMessages = function() {
+      return $http.get("/api/messages/latest").then(result => {
+        return result.data;
+      });
+    };
   }
 ]);

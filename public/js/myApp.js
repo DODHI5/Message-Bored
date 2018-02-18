@@ -20,11 +20,11 @@ angular
       .when("/users", {
         controller: "UsersController",
         templateUrl: "/views/users.html"
+      })
+      .when("/messages", {
+        controller: "MessagesController",
+        templateUrl: "/views/other.html"
       });
-    // .when("/other", {
-    //   controller: "OtherController",
-    //   templateUrl: "/views/other.html"
-    // })
     // .otherwise({
     //   templateUrl: "views/notfound.html"
     // });

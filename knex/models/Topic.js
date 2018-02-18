@@ -8,7 +8,10 @@ class Topic extends bookshelf.Model {
     return true;
   }
   users() {
-    return this.belongsTo(User);
+    return this.belongsTo(User, { foreignKey: "create_by" });
+  }
+  messages() {
+    return this.hasMany(messages, { foreignKey: "topic_id" });
   }
 }
 

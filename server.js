@@ -5,7 +5,6 @@ const PORT = process.env.PORT || 8080;
 const bodyParser = require("body-parser");
 const topicRoutes = require("./routes/topic");
 const userRoutes = require("./routes/user");
-const messageRoutes = require("./routes/message");
 const methodOverride = require("method-override");
 
 // const passport = require("passport");
@@ -33,7 +32,6 @@ app.use(methodOverride("_method"));
 
 app.use("/api/users", userRoutes);
 app.use("/api/topics", topicRoutes);
-app.use("/api/messages", messageRoutes);
 
 app.get("/*", (req, res) => {
   var options = {

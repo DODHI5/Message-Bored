@@ -1,13 +1,16 @@
 angular.module("myApp").controller("UsersController", [
   "$scope",
+  "$routeParams",
   "UserService",
-  function($scope, UserService) {
-    UserService.fetchUsers();
-    $scope.users = UserService.getUsers();
+  function($scope, $routeParams, UserService) {
+    $scope.users = [];
+    UserService.allUsers().then(users => {
+      $scope.users = users;
+    });
 
     $scope.addUser = function() {
       let user = Object.assign({}, $scope.newUser);
-      UserService.insertUsers(user);
+      UserService.createUser(user);
       //clear inputs
       $scope.newUser.name = "";
     };

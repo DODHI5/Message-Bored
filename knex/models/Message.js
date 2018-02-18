@@ -8,10 +8,10 @@ class Message extends bookshelf.Model {
     return true;
   }
   users() {
-    return this.belongsTo(User);
+    return this.belongsTo(User, { foreignKey: "author_id" });
   }
   topics() {
-    return this.belongsTo(Topic);
+    return this.belongsTo(Topic, { foreignKey: "topic_id" });
   }
 }
 

@@ -7,8 +7,11 @@ class User extends bookshelf.Model {
   get hasTimestamps() {
     return true;
   }
-  users() {
-    return this.belongsTo(Topic);
+  topics() {
+    return this.hasMany(Topics, { foreignKey: "created_by" });
+  }
+  messages() {
+    return this.hasMany(Messages, { foreignKey: "author_id" });
   }
 }
 
