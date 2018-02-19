@@ -1,4 +1,4 @@
-angular.module("myApp").controller("MessagesController", [
+angular.module("App").controller("MessagesController", [
   "$scope",
   "messageService",
   function($scope, MessageService) {

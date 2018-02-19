@@ -1,4 +1,4 @@
-angular.module("myApp").service("TopicService", [
+angular.module("App").service("TopicService", [
   "$http",
   function($http) {
     let topicArr = [];

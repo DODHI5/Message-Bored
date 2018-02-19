@@ -1,4 +1,4 @@
-angular.module("myApp").controller("TopicsController", [
+angular.module("App").controller("TopicsController", [
   "$scope",
   "TopicService",
   function($scope, TopicService) {

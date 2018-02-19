@@ -1,9 +1,9 @@
 // creation uses a 2nd array argument to import dependencies
-angular.module("myApp", ["ngRoute"]);
+angular.module("App", ["ngRoute"]);
 
 // retrieval has only one argument
 angular
-  .module("myApp")
+  .module("App")
 
   .config(function($routeProvider, $locationProvider) {
     // config

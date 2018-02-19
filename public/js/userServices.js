@@ -1,22 +1,53 @@
-angular.module("myApp").service("UserService", [
+angular.module("App").service("UserService", [
   "$http",
   function($http) {
-    this.allUsers = function() {
-      return $http.get(`api/users`).then(result => {
-        return result.data;
-      });
+    let userArr = [];
+
+    this.getUsers = function() {
+      return $http
+        .get("api/users")
+        .then(userArr => {
+          return userArr.data;
+        })
+        .catch(err => {
+          console.log(err);
+        });
     };
 
-    this.getSingleUser = function(id) {
-      return $http.get(`api/users/${id}`).then(result => {
-        console.log(result);
-        return result.data;
-      });
+    this.getUsername = function(username) {
+      return $http
+        .get(`/api/users/${username}`)
+        .then(user => {
+          let showData = null;
+          if (user.data) {
+            showData = user.data;
+          }
+          return showData;
+        })
+        .catch(err => {
+          console.log(err);
+        });
     };
+    this.fetchUsers = function() {
+      return $http
+        .get("/api/Users")
+        .then(data => {
+          console.log("fhksfsdhflsf", data);
+          let result = data.data;
 
-    this.createUser = function(username) {
-      return $http.post("/api/users", username).then(result => {
-        return result.data;
+          result.forEach(element => {
+            userArr.push(element);
+          });
+          return userArr;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    };
+    this.insertUsers = function(newUser) {
+      return $http.post("/api/users", newUser).then(data => {
+        let result = data.data;
+        userArr.push(result);
       });
     };
   }

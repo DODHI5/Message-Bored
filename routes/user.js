@@ -1,6 +1,10 @@
 const express = require("express");
 const User = require("../knex/models/user");
 const router = express.Router();
+// let db = require("../knex/models");
+// let Users = db.users;
+// let Topics = db.topics;
+// let Messages = db.topics;
 
 //Time
 router.use((req, res, next) => {
